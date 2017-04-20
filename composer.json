@@ -1,0 +1,36 @@
+{
+    "name": "indielab/yii2-slack",
+    "type": "library",
+    "description": "Yii2 Slack",
+    "keywords": ["php", "api", "slack"],
+    "homepage": "https://github.com/indielab/yii2-slack",
+    "authors": [
+        {
+            "name": "Basil Suter",
+            "homepage": "https://github.com/nadar",
+            "role": "Creator"
+        }
+    ],
+    "require": {
+        "curl/curl": "^1.6",
+        "yiisoft/yii2" : "~2.0.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Indielab\\Slack\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Indielab\\Slack\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
