@@ -1,7 +1,7 @@
 {
     "name": "indielab/yii2-slack",
     "type": "library",
-    "description": "Yii2 Slack",
+    "description": "Yii Post Message to Slack Channel",
     "keywords": ["php", "api", "slack"],
     "homepage": "https://github.com/indielab/yii2-slack",
     "authors": [
