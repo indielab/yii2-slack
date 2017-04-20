@@ -78,7 +78,7 @@ class Client extends Component
      * @param array $options
      * @return \Indielab\Slack\Client
      */
-    public function success($message, array $options)
+    public function success($message, array $options = [])
     {
         $options['color'] = ArrayHelper::remove($options, 'color', 'good');
         
