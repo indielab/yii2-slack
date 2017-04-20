@@ -2,25 +2,41 @@
 
 namespace Indielab\Slack;
 
+use Curl\Curl;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
-use Curl\Curl;
 use yii\helpers\ArrayHelper;
 
 /**
+ * Slack Message Client.
  * 
  * @author Basil Suter <basil@nadar.io>
  */
 class Client extends Component
 {
+    /**
+     * @var string
+     */
 	public $channel = null;
 	
+	/**
+	 * @var string
+	 */
 	public $token = null;
 	
+	/**
+	 * @var string
+	 */
 	public $icon = ':scream_cat:';
 	
+	/**
+	 * @var string
+	 */
 	public $username = 'Slack BOT';
 	
+	/**
+	 * @inheritdoc
+	 */
 	public function init()
 	{
 		parent::init();
@@ -30,20 +46,38 @@ class Client extends Component
 		}
 	}
 	
-	public function danger($message, array $options)
+	/**
+	 * 
+	 * @param unknown $message
+	 * @param array $options
+	 * @return \Indielab\Slack\Client
+	 */
+	public function danger($message, array $options = [])
 	{
 	    $options['color'] = ArrayHelper::remove($options, 'color', 'danger');
 	
-	    return $this->message($message, $options);
+	    return $this->message($message, $options = []);
 	}
 	
-	public function warning($message, array $options)
+	/**
+	 * 
+	 * @param unknown $message
+	 * @param array $options
+	 * @return \Indielab\Slack\Client
+	 */
+	public function warning($message, array $options = [])
 	{
 	    $options['color'] = ArrayHelper::remove($options, 'color', 'warning');
 	     
 	    return $this->message($message, $options);
 	}
 	
+	/**
+	 * 
+	 * @param unknown $message
+	 * @param array $options
+	 * @return \Indielab\Slack\Client
+	 */
 	public function success($message, array $options)
 	{
 	    $options['color'] = ArrayHelper::remove($options, 'color', 'good');
@@ -79,6 +113,10 @@ class Client extends Component
 	    return $this;
 	}
 	
+	/**
+	 * 
+	 * @return boolean
+	 */
 	public function send()
 	{
 	    $data = $this->_attachments;
@@ -87,6 +125,11 @@ class Client extends Component
 	    return $this->parseAndSend($data);
 	}
 
+	/**
+	 * 
+	 * @param array $attachements
+	 * @return boolean
+	 */
 	private function parseAndSend(array $attachements)
 	{
 	    $curl = new Curl();
