@@ -6,7 +6,7 @@ Post a message to a Slack Channel. Pedefined functions to enable coloring.
 
 Add the `indielab/yii2-slack` package to your composer.json
 
-```php
+```sh
 composer require indielab/yii2-slack
 ```
 
